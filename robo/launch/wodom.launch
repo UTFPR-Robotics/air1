@@ -1,0 +1,3 @@
+<launch>
+	<node name="w_odom" pkg="w_odom" type="w_odom_node" output="screen" ns="WheelOdom" />
+</launch>

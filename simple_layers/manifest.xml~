@@ -1,0 +1,21 @@
+<package>
+  <description brief="simple_layer">
+
+     simple_layers_bro
+
+  </description>
+  <author>robo</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/simple_layers</url>
+  <depend package="roscpp"/>
+  <depend package="costmap_2d"/>
+  <depend package="dynamic_reconfigure"/>
+
+  <export>
+    <costmap_2d plugin="${prefix}/costmap_plugins.xml" />
+  </export>
+
+</package>
+
+

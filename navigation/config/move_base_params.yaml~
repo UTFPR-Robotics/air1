@@ -1,0 +1,6 @@
+controller_patience: 15.0
+clearing_radius: 0.5
+recovery_behavior_enabled: false
+clearing_rotation_allowed: false
+controller_frequency: 5.0
+base_local_planner:  base_local_planner/TrajectoryPlannerROS

@@ -1,0 +1,28 @@
+TrajectoryPlannerROS:
+  acc_lim_x:  0.25
+  acc_lim_y:  0.0
+  acc_lim_theta: 0.01
+  max_vel_x:  0.30
+  min_vel_x:  0.1
+  max_rotational_vel: 0.3
+  min_in_place_rotational_vel: 0.18
+  escape_vel: -0.1
+  holonomic_robot: false
+
+  xy_goal_tolerance:  0.250 #meio metro
+  yaw_goal_tolerance: 0.20 #quase 30 deg
+
+  sim_time: 5
+  sim_granularity: 0.025
+  vx_samples: 10
+  vtheta_samples: 10
+
+  goal_distance_bias: 0.8 #The weighting for how much the controller should attempt to reach its local goal, also controls speed
+  path_distance_bias: 7   #The weighting for how much the controller should stay close to the path it was given
+  occdist_scale: 0.1 #The weighting for how much the controller should attempt to avoid obstacles
+  heading_lookahead: 0.325
+  dwa: true #//only set to true if the robot has high accel limits.
+  publish_cost_grid_pc: true
+
+  oscillation_reset_dist: 0.5
+  meter_scoring: true

@@ -1,0 +1,3 @@
+<launch>
+  <node name="laser_tf" pkg="robot_setup_tf" type="robot_setup_tf_node" />
+</launch>

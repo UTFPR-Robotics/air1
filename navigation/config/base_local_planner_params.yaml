@@ -1,0 +1,29 @@
+#Veja todos os parâmetros aqui: http://wiki.ros.org/base_local_planner
+TrajectoryPlannerROS:
+  max_vel_x: 0.2
+  min_vel_x: 0.01
+  max_rotational_vel: 0.2
+  max_vel_theta: 0.2
+  min_vel_theta: -0.2
+  min_in_place_rotational_vel: 0.01
+
+  acc_lim_x: 0.03
+  acc_lim_y: 0.0
+  acc_lim_theta: 0.01
+
+  holonomic_robot: false
+
+  yaw_goal_tolerance: 0.09 
+  xy_goal_tolerance: 0.1 #10cm 
+  goal_distance_bias: 0.6
+  path_distance_bias: 0.8
+
+  meter_scoring: true
+  heading_scoring: false
+  oscillation_reset_dist: 0.05
+  occdist_scale: 0.05
+
+  controller_frequency: 5.0
+
+  vx_samples: 3
+  vtheta_samples: 12

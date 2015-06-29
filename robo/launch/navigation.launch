@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<launch>
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+
+    <!-- http://wiki.ros.org/costmap_2d -->
+    <rosparam file="$(find robo)/launch/nav_config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find robo)/launch/nav_config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find robo)/launch/nav_config/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find robo)/launch/nav_config/global_costmap_params.yaml" command="load" />
+
+    <!-- http://wiki.ros.org/dwa_local_planner -->
+    <rosparam file="$(find robo)/launch/nav_config/base_local_planner_params.yaml" command="load" />
+
+    <!-- http://wiki.ros.org/move_base -->
+    <rosparam file="$(find robo)/launch/nav_config/move_base_params.yaml" command="load" />
+
+  </node>
+</launch>

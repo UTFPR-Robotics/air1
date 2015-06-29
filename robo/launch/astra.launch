@@ -1,0 +1,55 @@
+<launch>
+	<!-- ####################### MOTORES ####################### -->
+	<rosparam command="load" file="$(find eposmanager)/params/Node1.yaml" ns="motors/Motor_1" />
+	<rosparam command="load" file="$(find eposmanager)/params/Node2.yaml" ns="motors/Motor_2" />        
+
+	<node name="Epos2014" pkg="eposmanager" type="EposManager"  ns="motors" output="screen" args="Motor_1 Motor_2" >
+		<param name="Protocol" value="USB" />
+		<param name="Port" value="USB0" />
+		<param name="Publish_Rate" value="100" />
+	</node>	
+
+	<node name="bridge" pkg="bridge" type="bridge_node" output="screen"  />
+
+	<node name="base_pre_controller" pkg="base_pre_controller" type="base_pre_controller_node" output="screen" />
+
+	<!-- ####################### HOKUYO ####################### -->
+
+	<node name="HokuyoNode" pkg="hokuyo_node" type="hokuyo_node" respawn="false" output="screen" ns="Hokuyo">
+		<param name="calibrate_time" type="bool" value="true"/>
+    		<param name="port" type="string" value="/dev/ttyACM1"/>   
+		<param name="intensity" type="bool" value="false"/>
+	</node>
+	
+	<!-- ####################### ARDUINO ####################### -->
+
+	<node pkg="rosserial_python" type="serial_node.py" args="/dev/ttyACM0" name="serial_node" respawn="true" output="screen" ns="Hokuyo">
+	<param name="baud" value="38400"/>
+	</node>
+
+	<!-- ####################### SPARTON ####################### -->
+
+	<!-- node pkg="SpartonCompassIMU" type="SpartonCompassIMU.py" name="Sparton" respawn="true" output="screen" ns="Sparton">
+    		<param name="port" value="/dev/ttyUSB0" />
+    		<param name="baud" value="115200" />
+    		<param name="printmodulus" value="4" />
+	    	<param name="frame_id" value="/base" />
+  	</node -->
+
+	<!-- ######################### TF ######################### -->
+
+	<node name="tfUm" pkg="robot_setup_tf" type="robot_setup_tf_node" output="screen" />
+
+	<!-- ####################### W_ODOM ####################### -->
+
+	<node name="w_odom" pkg="w_odom" type="w_odom_node" output="screen"  />
+
+	<!-- ##################### NAVIGATION ##################### -->	
+	<include file="$(find navigation)/navigation.launch"  />
+	<include file="$(find navigation)/gmapping.launch"  />
+
+	<!-- name="Navigation" pkg="navigation" type="navigation" output="screen" / -->
+	<!-- node name="Gmapping" pkg="navigation" type="gmapping" output="screen" / -->
+
+</launch>
+

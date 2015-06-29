@@ -1,0 +1,17 @@
+<launch>
+	<rosparam command="load" file="$(find eposmanager)/params/Node1.yaml" ns="motors/Motor_1" />
+	<rosparam command="load" file="$(find eposmanager)/params/Node2.yaml" ns="motors/Motor_2" />        
+
+	<node name="Epos2014" pkg="eposmanager" type="EposManager"  ns="motors" output="screen" args="Motor_1 Motor_2" >
+		<param name="Protocol" value="USB" />
+		<param name="Port" value="USB0" />
+		<param name="Publish_Rate" value="100" />
+	</node>	
+
+	<node name="bridge" pkg="bridge" type="bridge_node" output="screen"  />
+
+	<node name="base_pre_controller" pkg="base_pre_controller" type="base_pre_controller_node" output="screen" />
+
+	<node name="w_odom" pkg="w_odom" type="w_odom_node" output="screen" ns="WheelOdom" />
+
+</launch>

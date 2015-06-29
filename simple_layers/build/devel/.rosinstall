@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/robo/catkin_ws/src/simple_layers/build/devel/setup.sh

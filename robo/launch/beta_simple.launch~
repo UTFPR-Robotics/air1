@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<launch>
+	
+	<node name="tfUm" pkg="robot_setup_tf" type="robot_setup_tf_node" output="screen" />
+
+	<node name="base_simple_pre_controller" pkg="base_simple_pre_controller" type="base_simple_pre_controller_node" output="screen" />
+	
+	<include file="$(find robo)/launch/map.launch" />
+
+</launch>
+
