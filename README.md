@@ -1,5 +1,6 @@
-git remote add origin https://thearvie@bitbucket.org/air_lasca/air-beta.git
+*************************************************************
+	      AIR1 - Autonomous Inspection Robot
+*************************************************************
+Laboratory of Automation and Advanced Control Systems (LASCA) 
+    Federal University of Technology - Parana (UTFPR)
 
-git add file.txt
-git commit -m 'your message'
-git push -u origin BRANCH_NAME (default: master)
